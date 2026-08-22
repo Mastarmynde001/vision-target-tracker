@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vision-target-tracker"
+version = "0.1.0"
+description = "Real-time vision target tracking engine using OpenCV color masking and contour analysis"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.22.0",
+    "opencv-python>=5.0.0.93",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "opencv-python>=4.5.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["tracking_engine"]
