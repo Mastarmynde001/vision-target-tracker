@@ -1,6 +1,6 @@
-# Vision Target Tracker Engine 🎯
+# Vision Target Tracker Engine
 
-[![CI](https://github.com/your-username/vision-target-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/your-username/vision-target-tracker/actions/workflows/ci.yml)
+[![CI](https://github.com/Mastarmynde001/vision-target-tracker/actions/workflows/ci.yml/badge.svg)](https://github.com/Mastarmynde001/vision-target-tracker/actions/workflows/ci.yml)
 [![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Environment: uv](https://img.shields.io/badge/managed%20by-uv-purple.svg)](https://github.com/astral-sh/uv)
@@ -12,18 +12,18 @@ A high-performance, real-time computer vision target tracking engine built in Py
 
 ---
 
-## 🏗️ Architecture & Processing Pipeline
+## Architecture & Processing Pipeline
 
 ```mermaid
 flowchart LR
-    A[📹 Video Input<br/>Webcam / File Stream] --> B[🎨 HSV Masking<br/>& Noise Reduction]
-    B --> C[📐 Centroid & Velocity<br/>cv2.moments & dt]
-    C --> D[🖌️ Frame Overlay<br/>BBox, Crosshair, Vector]
-    C --> E[📡 Telemetry Dispatch<br/>Non-blocking Queue]
+    A[Video Input<br/>Webcam / File Stream] --> B[🎨 HSV Masking<br/>& Noise Reduction]
+    B --> C[Centroid & Velocity<br/>cv2.moments & dt]
+    C --> D[Frame Overlay<br/>BBox, Crosshair, Vector]
+    C --> E[Telemetry Dispatch<br/>Non-blocking Queue]
     
-    D --> F[🖥️ Display / Video Sink<br/>cv2.imshow / VideoWriter]
-    E --> G[🌐 UDP Datagrams<br/>127.0.0.1:5005 / ROS 2]
-    E --> H[🔌 UART Serial<br/>ESP32 / STM32 / Arduino]
+    D --> F[Display / Video Sink<br/>cv2.imshow / VideoWriter]
+    E --> G[UDP Datagrams<br/>127.0.0.1:5005 / ROS 2]
+    E --> H[UART Serial<br/>ESP32 / STM32 / Arduino]
 
     classDef input fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
     classDef process fill:#e8f5e9,stroke:#388e3c,stroke-width:2px;
@@ -36,7 +36,7 @@ flowchart LR
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
 - **HSV Color Segmentation & Filtering**: Configurable lower and upper HSV threshold boundaries with noise reduction via Gaussian blurring and morphological opening/closing operations.
 - **Sub-Pixel Centroid & Bounding Box Localization**: Image moments (`cv2.moments`) to derive precise centroid coordinates $(x, y)$ and bounding box rectangles $(x, y, w, h)$.
@@ -49,22 +49,22 @@ flowchart LR
 
 ---
 
-## 💡 Real-World Applications & Use Cases
+## Real-World Applications & Use Cases
 
-### 🤖 Robotics & Autonomous Navigation
+### Robotics & Autonomous Navigation
 * **Visual Docking**: Guiding a rover or drone toward a specific color-coded charging pad or landing pad.
 * **Line & Landmark Following**: Calculating offset vectors from the frame center to generate steering control signals (e.g., PID error inputs).
 * **Pan-Tilt Camera Mount Control**: Sending the calculated target centroid $(x, y)$ over Serial/UART to microcontrollers (ESP32, STM32, or Arduino) to drive pan-tilt servos that keep the object locked in the center of the frame.
 
-### 🏭 Industrial Automation & Sorting
+### Industrial Automation & Sorting
 * **Conveyor Belt Sorting**: Tracking color-coded items passing along a conveyor belt and calculating velocity vectors to trigger mechanical actuators at the precise intercept time.
 
-### 🛡️ Security & Perimeter Monitoring
+### Security & Perimeter Monitoring
 * **Target Acquisition**: Isolating moving visual targets within a designated region of interest (ROI) and triggering telemetry logs or alerts when a target breaches boundary zones.
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 vision-target-tracker/
@@ -94,7 +94,7 @@ vision-target-tracker/
 
 ---
 
-## 🚀 Quickstart & Installation
+## Quickstart & Installation
 
 This project uses [`uv`](https://github.com/astral-sh/uv) for fast, deterministic Python environment and dependency management.
 
@@ -121,7 +121,7 @@ uv pip install -e .[dev]
 
 ---
 
-## 💻 Commands & Usage Examples
+## Commands & Usage Examples
 
 ### 1. Live Webcam Tracking
 
@@ -197,7 +197,7 @@ uv run main.py --source 0 --output tracked_output.mp4 --max-frames 300
 
 ---
 
-## 🧪 Testing & Verification
+## Testing & Verification
 
 Run the automated test suite with `pytest` via `uv`:
 
@@ -221,7 +221,7 @@ uv run pytest -v
 
 ---
 
-## 🔌 Hardware & System Integration
+## Hardware & System Integration
 
 ### JSON Telemetry Payload Contract
 
@@ -256,7 +256,7 @@ Every detected target emits a lightweight JSON packet:
 
 ---
 
-## 📜 Documentation & Specifications
+## Documentation & Specifications
 
 - **[ARCHITECTURE.md](./ARCHITECTURE.md)**: Architectural specifications, class structures, and module contracts.
 - **[TELEMETRY_SPEC.md](./TELEMETRY_SPEC.md)**: Hardware and network telemetry protocol specifications.
