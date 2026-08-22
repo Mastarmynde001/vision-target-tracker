@@ -266,6 +266,6 @@ Every detected target emits a lightweight JSON packet:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the [MIT License](./pyproject.toml).
