@@ -110,7 +110,7 @@ This project uses [`uv`](https://github.com/astral-sh/uv) for fast, deterministi
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/vision-target-tracker.git
+git clone https://github.com/Mastarmynde001/vision-target-tracker.git
 cd vision-target-tracker
 
 # Create virtual environment and install in editable mode with dev dependencies
