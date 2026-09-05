@@ -36,7 +36,7 @@ def main():
         print(f"Error: Unable to bind to {args.ip}:{args.port} - {e}", file=sys.stderr)
         sys.exit(1)
 
-    print(f"📡 Telemetry Receiver listening on UDP {args.ip}:{args.port}...")
+    print(f"Telemetry Receiver listening on UDP {args.ip}:{args.port}...")
     print("-" * 75)
     print(f"{'FRAME':<8} {'TARGET':<8} {'CENTROID (X,Y)':<18} {'VELOCITY (Vx,Vy)':<20} {'FPS':<8}")
     print("-" * 75)
