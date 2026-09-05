@@ -16,7 +16,7 @@ A high-performance, real-time computer vision target tracking engine built in Py
 
 ```mermaid
 flowchart LR
-    A[Video Input<br/>Webcam / File Stream] --> B[🎨 HSV Masking<br/>& Noise Reduction]
+    A[Video Input<br/>Webcam / File Stream] --> B[HSV Masking<br/>& Noise Reduction]
     B --> C[Centroid & Velocity<br/>cv2.moments & dt]
     C --> D[Frame Overlay<br/>BBox, Crosshair, Vector]
     C --> E[Telemetry Dispatch<br/>Non-blocking Queue]
@@ -170,6 +170,7 @@ uv run main.py --source 0 --serial-port /dev/ttyUSB0 --baudrate 115200
 ### 6. Custom HSV Color Tuning & Area Filter
 
 Customize HSV color boundaries and minimum pixel area thresholds:
+E.g 
 
 ```bash
 # Track bright green objects
@@ -197,18 +198,6 @@ uv run main.py --source 0 --output tracked_output.mp4 --max-frames 300
 
 ---
 
-## Testing & Verification
-
-Run the automated test suite with `pytest` via `uv`:
-
-```bash
-# Run unit tests
-uv run pytest
-
-# Run unit tests with verbose output
-uv run pytest -v
-```
-
 ### Test Coverage Highlights:
 
 - **Centroid Accuracy**: Validates centroid localization against synthetic white circles centered at `(100, 100)` ensuring <= 2px error.
@@ -226,6 +215,7 @@ uv run pytest -v
 ### JSON Telemetry Payload Contract
 
 Every detected target emits a lightweight JSON packet:
+E.g
 
 ```json
 {
@@ -260,9 +250,6 @@ Every detected target emits a lightweight JSON packet:
 
 - **[ARCHITECTURE.md](./ARCHITECTURE.md)**: Architectural specifications, class structures, and module contracts.
 - **[TELEMETRY_SPEC.md](./TELEMETRY_SPEC.md)**: Hardware and network telemetry protocol specifications.
-- **[QA_AUDIT.md](./QA_AUDIT.md)**: Systems validation and quality assurance audit report.
-- **[SECURITY_AUDIT.md](./SECURITY_AUDIT.md)**: Security, privacy, and path-sanitization audit report.
-- **[.github/workflows/ci.yml](./.github/workflows/ci.yml)**: GitHub Actions automated test matrix across Python `3.10`, `3.11`, and `3.12`.
 
 ---
 
